@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Bar | Catalog</title>
+    <link rel="stylesheet" href="./Header.css">
+    <link rel="stylesheet" href="./Catalog.css">
+    <link rel="stylesheet" href="./Menu.css">
+    <link rel="stylesheet" href="./Modal.css">
+    <link rel="stylesheet" href="./Footer.css">
+    <style>
+        /* Дополнительные стили для фиксированного футера */
+        .footer-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: #222;
+            padding: 10px 0;
+        }
+        /* Стиль для видимости модального окна */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <div class="header-container">
+        <div class="header-left">
+            <h1>Привет, Имя Фамилия</h1>
+            <div class="header-divider"></div>
+        </div>
+        <div class="header-right">
+            <button class="search-button">
+                <img src="path_to_PoiskIcon.png" alt="Поиск" class="header-icon"/>
+            </button>
+            <button class="profile-button">
+                <img src="path_to_ProfilePhoto.png" alt="Профиль" class="header-icon"/>
+            </button>
+        </div>
+    </div>
+
+    <!-- Каталог -->
+    <div class="catalog-container">
+        <h2 class="catalog-title">Все товары</h2>
+        <div class="catalog-items">
+            <button class="catalog-item" onclick="displayMenuItems('burgers')">
+                <img src="path_to_BurgerIcon.png" alt="Бургеры" class="catalog-icon" /> Бургеры
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('pizza')">
+                <img src="path_to_PizzaIcon.png" alt="Пицца" class="catalog-icon" /> Пицца
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('french-dogs')">
+                <img src="path_to_KormIcon.png" alt="Френч Доги" class="catalog-icon" /> Френч Доги
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('snacks')">
+                <img src="path_to_SnekIcon.png" alt="Снэки" class="catalog-icon" /> Снэки
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('cocktails')">
+                <img src="path_to_KokIcon.png" alt="Коктейли" class="catalog-icon" /> Коктейли
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('salads')">
+                <img src="path_to_SalatIcon.png" alt="Салаты" class="catalog-icon" /> Салаты
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('soups')">
+                <img src="path_to_SupIcon.png" alt="Супы" class="catalog-icon" /> Супы
+            </button>
+            <button class="catalog-item" onclick="displayMenuItems('desserts')">
+                <img src="path_to_CakeIcon.png" alt="Десерты" class="catalog-icon" /> Десерты
+            </button>
+        </div>
+    </div>
+
+    <!-- Меню товаров -->
+    <div class="menu-container">
+        <div class="menu-items" id="menuItemsContainer">
+            <!-- Товары будут динамически добавлены здесь -->
+        </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <img id="modalImage" alt="Изображение товара" class="modal-image" />
+            <p id="modalDescription" class="modal-description"></p>
+            <div class="modal-details">
+                <span id="modalWeight" class="modal-weight"></span>
+                <span id="modalPrice" class="modal-price"></span>
+            </div>
+            <button class="modal-add-to-cart-button">Добавить в корзину</button>
+            <button class="modal-close-button" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <div class="footer-container">
+        <button class="footer-icon">
+            <img src="path_to_HomeIcon.png" alt="Home" />
+        </button>
+        <button class="footer-icon">
+            <img src="path_to_HomeIcon.png" alt="Orders" />
+        </button>
+        <button class="footer-icon cart">
+            <img src="path_to_HomeIcon.png" alt="Korzina" />
+        </button>
+        <button class="footer-icon">
+            <img src="path_to_HomeIcon.png" alt="Favorites" />
+        </button>
+        <button class="footer-icon">
+            <img src="path_to_HomeIcon.png" alt="Profile" />
+        </button>
+    </div>
+
+    <script>
+        const menuItems = {
+            burgers: [
+                { id: 1, name: 'Биф Бургер', description: 'Говяжья котлета, сыр чеддер, овощи', price: '₸3000', weight: '350g', image: 'path_to_BurgerImage.png' },
+                // Добавьте другие товары для категории
+            ],
+            pizza: [
+                { id: 2, name: 'Ветчина грибы', description: 'Ветчина, грибы, сыр моцарелла', price: '₸2800', weight: '300g', image: 'path_to_PizzaImage.png' },
+                // Добавьте другие товары для категории
+            ],
+            // Добавьте другие категории
+        };
+
+        function displayMenuItems(category) {
+            const menuContainer = document.getElementById('menuItemsContainer');
+            menuContainer.innerHTML = ''; // Очищаем контейнер
+            const items = menuItems[category] || []; // Получаем товары по категории
+            items.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="menu-item-image" onclick="openModal('${item.id}', '${category}')">
+                    <div class="menu-item-info">
+                        <h3>${item.name}</h3>
+                        <p class="menu-opisanie">${item.description}</p>
+                        <div class="menu-price-container">
+                            <p class="menu-price">${item.price}</p>
+                            <p class="menu-weight">${item.weight}</p>
+                            <button class="menu-add-to-cart-button">+</button>
+                        </div>
+                    </div>`;
+                menuContainer.appendChild(menuItem); // Добавляем элемент товара в контейнер
+            });
+        }
+        function openModal(itemId, category) {
+            const item = menuItems[category].find(i => i.id == itemId);
+            document.getElementById('modalTitle').textContent = item.name;
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalDescription').textContent = item.description;
+            document.getElementById('modalWeight').textContent = item.weight;
+            document.getElementById('modalPrice').textContent = item.price;
+            document.getElementById('modal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('show');
+        }
+    </script>
+</body>
+</html>

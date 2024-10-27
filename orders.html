@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Orders.css">
+    <link rel="stylesheet" href="./Footer.css">
+    <title>Мои заказы | BURGER BAR</title>
+</head>
+<body>
+    <div class="orders-container">
+        <div class="orders-header">
+            <h2>Мои заказы</h2>
+        </div>
+
+        <!-- Status filter -->
+        <div class="orders-status-filter">
+            <button onclick="setSelectedStatus('all')">Все</button>
+            <button onclick="setSelectedStatus('delivering')">Доставляется</button>
+            <button onclick="setSelectedStatus('delivered')">Доставлено</button>
+            <button onclick="setSelectedStatus('self-pickup')">Забран самостоятельно</button>
+        </div>
+
+        <!-- Orders list -->
+        <div class="orders-list" id="ordersList">
+            <!-- Orders will be dynamically added here via JavaScript -->
+        </div>
+
+        <!-- Footer with icons -->
+        <div class="footer-container">
+            <a href="hom.html" class="footer-icon">
+                <button class="footer-icon">
+                    <img src="./icons/home.png" alt="Home" />
+                </button>
+            </a>
+            <a href="orders.html" class="footer-icon">
+                <button class="footer-icon">
+                    <img src="./icons/order.png" alt="Orders" />
+                </button>
+            </a>
+            <a href="./zakaz.html" class="footer-icon">
+                <button class="footer-icon cart">
+                    <img src="./icons/korz.png" alt="Cart" />
+                </button>
+            </a>
+            <a href="./loved.html" class="footer-icon">
+                <button class="footer-icon">
+                    <img src="./icons/fav.png" alt="Favorites" />
+                </button>
+            </a>
+            <a href="./profile.html" class="footer-icon">
+                <button class="footer-icon">
+                    <img src="./icons/puser.png" alt="Profile" />
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+       const orders = [
+    {
+        id: '12345',
+        items: 2,
+        status: 'delivering',
+        iconColor: 'gold', // Color for "Delivering"
+        stages: [
+            { status: 'Заказ принят', date: '2024-10-01', delivered: true },
+            { status: 'Отправлен', date: '2024-10-02', delivered: false }
+        ]
+    },
+    {
+        id: '67890',
+        items: 3,
+        status: 'delivered',
+        iconColor: 'blue', // Color for "Delivered"
+        stages: [
+            { status: 'Заказ принят', date: '2024-09-28', delivered: true },
+            { status: 'Доставлен', date: '2024-09-29', delivered: true }
+        ]
+    },
+    {
+        id: '11223',
+        items: 1,
+        status: 'self-pickup',
+        iconColor: 'purple', // Color for "Self-Pickup"
+        stages: [
+            { status: 'Заказ принят', date: '2024-10-10', delivered: true },
+            { status: 'Готов к получению', date: '2024-10-11', delivered: true },
+            { status: 'Забран самостоятельно', date: '2024-10-11', delivered: true }
+        ]
+    },
+    {
+        id: '44556',
+        items: 4,
+        status: 'delivering',
+        iconColor: 'gold', // Color for "Delivering"
+        stages: [
+            { status: 'Заказ принят', date: '2024-10-15', delivered: true },
+            { status: 'Отправлен', date: '2024-10-16', delivered: false }
+        ]
+    },
+    {
+        id: '78901',
+        items: 5,
+        status: 'delivered',
+        iconColor: 'blue', // Color for "Delivered"
+        stages: [
+            { status: 'Заказ принят', date: '2024-10-05', delivered: true },
+            { status: 'Доставлен', date: '2024-10-06', delivered: true }
+        ]
+    }
+];
+
+        
+        let expandedOrder = null;
+
+    </script>
+    <script>
+        let selectedStatus = 'all';
+    
+        // Function to set the selected status and filter orders
+        function setSelectedStatus(status) {
+            selectedStatus = status;
+            displayOrders(); // Refresh orders based on the selected status
+    
+            // Update active class for buttons
+            document.querySelectorAll('.orders-status-filter button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`button[onclick="setSelectedStatus('${status}')"]`).classList.add('active');
+        }
+    
+        // Function to display filtered orders
+        function displayOrders() {
+            const ordersList = document.getElementById('ordersList');
+            ordersList.innerHTML = '';
+    
+            // Filter orders based on selected status
+            const filteredOrders = orders.filter(order => selectedStatus === 'all' || order.status === selectedStatus);
+    
+            // Display filtered orders
+            filteredOrders.forEach(order => {
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item';
+    
+                orderItem.innerHTML = `
+                    <div class="order-info" onclick="toggleOrderDetails('${order.id}')">
+                        <div class="order-header">
+                            <div class="order-icon ${order.iconColor}"></div>
+                            <div>
+                                <p class="order-id">Заказ ID ${order.id}</p>
+                                <p>${order.items} товара - ${order.status === 'delivering' ? 'Доставляется' : order.status === 'self-pickup' ? 'Забран самостоятельно' : 'Доставлено'}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-details ${expandedOrder === order.id ? 'show' : 'hide'}" id="orderDetails-${order.id}">
+                        ${order.stages.map(stage => `
+                            <div class="order-stage">
+                                <div class="stage-icon ${stage.delivered ? 'delivered' : ''}"></div>
+                                <div class="stage-info">
+                                    <p>${stage.status}</p>
+                                    <p>${stage.date}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                ordersList.appendChild(orderItem);
+            });
+        }
+    
+        // Function to toggle order details visibility
+        function toggleOrderDetails(orderId) {
+            expandedOrder = expandedOrder === orderId ? null : orderId;
+            displayOrders();
+        }
+    
+        // Initialize the display on page load
+        window.onload = displayOrders;
+    </script>
+    
+</body>
+</html>

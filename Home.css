@@ -1,0 +1,30 @@
+.home-container {
+    padding: 10px;
+    background-color: #121212;
+    height: 900px;
+  }
+  
+  .all-items {
+    margin-top: 20px;
+  }
+  
+  .item-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .item {
+    width: 48%;
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .item img {
+    width: 100%;
+  }
+  
+  .price {
+    color: #f4ce42;
+  }
+  

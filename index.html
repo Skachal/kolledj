@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BURGER BAR | Вход</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <style>
+        /* Общий фон */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Open Sans Condensed', sans-serif;
+            background-color: #1c1c1c;
+            overflow: hidden;
+        }
+
+        .auth-container { 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background-color: #1c1c1c;
+            background-image: url('../image5.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85); /* Затемнение для текста */
+            z-index: 1;
+        }
+
+        .auth-box { 
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            color: #d1d1d1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .auth-h1 { 
+            color: #bbbaba;
+            font-size: 3.5em;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .auth-p { 
+            color: #807f7f;
+            font-size: 1.7em;
+            margin: 0px;
+        }
+
+        /* Новые стили для кнопок с эффектом */
+        .btn {
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+            width: 400px;
+            padding: 10px 0px;
+            cursor: pointer;
+            color: #4b4b4b;
+            transition: all 0.3s;
+            position: relative;
+            border-radius: 50px;
+            overflow: hidden;
+            background: none;
+            margin: 10px auto;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Добавлен эффект */
+          
+        }
+
+        .btn span {
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .btn::before,
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s;
+            background: none;
+        }
+        .btn:hover{
+         color: #d1d1d1;
+     
+  background: linear-gradient(180deg, #646464 0%, #363636 100%);
+        }
+        .btn::before {
+            border-top: 2px double rgba(71, 71, 71, 0.5);
+            border-bottom: 2px double rgba(27, 27, 27, 0.5);
+            opacity: 0;
+            background: none;
+            transform: scale(1.1, 2);
+        }
+        a{
+          text-decoration: none;
+        }
+        .btn:hover span {
+            letter-spacing: 2px;
+        }
+
+        .btn:hover::before {
+            opacity: 2S; 
+            transform: scale(1, 2); 
+        }
+
+        .btn:hover::after {
+            opacity: 0;
+            transform: scale(0.1, 1);
+        }
+
+        /* Адаптивные стили */
+        @media (max-width: 768px) { 
+            .auth-h1 { font-size: 2.5em; }
+            .auth-p { font-size: 1.1em; }
+            .auth-box { padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .auth-box { padding: 10px; }
+            .auth-h1 { font-size: 2em; }
+            .auth-p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1 class="auth-h1">BURGER BAR</h1>
+           <div class="down">
+            <p class="auth-p">Вкусный бургер — это то, <br> что вы заслуживаете <br> здесь и сейчас</p>
+            <div>
+                <a href="./login.html"><div class="btn"><span>Войти</span></div></a>
+                <a href="./registr.html"><div class="btn"><span>Зарегистрироваться</span></div></a>
+            </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
