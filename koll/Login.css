@@ -1,0 +1,206 @@
+/* Login.css */
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('./loginBack.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.login-box {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(40, 40, 40, 0.541);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Добавлен эффект */
+}
+
+.login-h1 {
+    font-family: "Nerko One", cursive;
+    color: #bbbaba;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.login-h2 {
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.login-p {
+    color: #888787;
+    font-size: 0.9em;
+}
+
+.login-input-field {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+/* Existing button styles */
+.login-input-field {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Добавлен эффект */
+}
+.login-input-field:hover{
+  
+  background: #22222A;
+}
+
+
+/* Target the image specifically on hover */
+.login-input-field:hover .icon {
+  filter: brightness(0) invert(1); /* Changes icon color to white */
+  transition: filter 0.3s ease; /* Smooth transition */
+
+}
+
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    width: 100%;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Добавлен эффект */
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    width: 48%;
+    transition: background 0.3s ease;
+    justify-content: center;
+}
+#f{
+  color: #131749;
+}
+#f:hover{
+  background-color: #131749;
+  color: #bbbaba;
+}
+#g{
+  color: #500b0b;
+}
+#g:hover{
+  color: #bbbaba;
+  background-color: #500b0b;
+}
+/* Existing button styles */
+.social-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  width: 48%;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Target the image specifically on hover */
+.social-button:hover .social-icon {
+  filter: brightness(0) invert(1); /* Changes icon color to white */
+  transition: filter 0.3s ease; /* Smooth transition */
+}
+
+
+.social-icon {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.login-button {
+    background: none;
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Добавлен эффект */
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 22px;
+    width: 100%;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background: linear-gradient(180deg, #E1D24A, #C69233);
+    color: #000000;
+}
+.login-link {
+  font-size: 0.9em;
+  color: #acacac;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #fffd8a;
+  text-decoration: none;
+}.login-link a:hover {
+color: #fdfa5a;
+}
+.error-message {
+    color: #f44336;
+    font-size: 0.9em;
+    display: none;
+    margin-bottom: 15px;
+}
