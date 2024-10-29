@@ -1,0 +1,227 @@
+body {
+  background-color: #18181d;
+}
+
+.zakaz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #18181d;
+  color: white;
+  padding: 0px 20px;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+}
+
+/* Main container adjustments */
+.zakaz-con {
+  padding: 0px 20px 20px 20px;
+}
+
+/* Title styling */
+.zakaz-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Order items container with scroll on overflow */
+.zakaz-items {
+  flex-grow: 1;
+  width: 700px;
+}
+
+/* Order item styling */
+.zakaz-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #22222A;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 700px; /* Limit width on larger screens */
+}
+
+/* Image adjustments */
+.item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Information section */
+.item-info {
+  flex-grow: 1;
+  margin-left: 10px;
+  line-height: 29.36px;
+}
+
+/* Item title */
+.item-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.36px;
+  text-align: left;
+}
+
+/* Item price */
+.item-info p {
+  margin: 0;
+  color: #6A6A6E;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16.52px;
+  text-align: left;
+}
+
+/* Quantity container */
+.item-quantity {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 90px;
+  height: 34px;
+  border-radius: 24px;
+  background: #19191D;
+}
+
+/* Quantity buttons styling */
+.quantity-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#p {
+  background: #12C358;
+}
+#m {
+  background: #F73C54;
+}
+
+/* Summary container styling */
+.zakaz-summary {
+  width: 100%;
+  height: 200px;
+  max-width: 375px; /* Restrict to max width on larger screens */
+  border-radius: 20px;
+  background: #22222A;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Summary text */
+.zakaz-summary p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26.94px;
+  color: #FFFFFF;
+}
+
+/* Pay button styling */
+.pay-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pay-button {
+  background: linear-gradient(180deg, #E1D24A 0%, #C69223 100%);
+  color: black;
+  border: none;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%; /* Full width for mobile */
+  max-width: 280px; /* Max width on larger screens */
+  height: 48px;
+}
+.pay-button:hover {
+  background: none;
+  color: white;
+}
+.tel{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* Footer navigation styling */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.footer-icon img {
+  width: 24px;
+}
+@media (max-width: 480px) {
+  .zakaz-items{
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .zakaz-summary{
+    height: 150px;
+    width: 360px;
+  }
+  .tel{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+  }
+}
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .zakaz-title {
+    font-size: 20px;
+  }
+
+  .zakaz-item {
+    padding: 8px;
+    width: 100%;
+  }
+
+  .item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .item-info h3 {
+    font-size: 14px;
+  }
+
+  .item-info p {
+    font-size: 11px;
+  }
+
+  .pay-button {
+    font-size: 14px;
+    height: 44px;
+  }
+
+  .footer-icon img {
+    width: 20px;
+  }
+}

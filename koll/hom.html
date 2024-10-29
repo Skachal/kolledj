@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Header.css">
+    <link rel="stylesheet" href="./Catalog.css">
+    <link rel="stylesheet" href="./Menu.css">
+    <link rel="stylesheet" href="./Modal.css">
+    <link rel="stylesheet" href="./Footer.css">
+    <title>home</title>
+    <style>
+        body {
+          background-color: #18181d;
+        }
+        .footer-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .gg{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+        .modal-overlay.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <div class="header-container">
+        <div class="header-left">
+            <h1>Привет, Сквидвард Квентин</h1>
+            <div class="header-divider"></div>
+        </div>
+        <div class="header-right">
+            <button class="profile-button" onclick="openModall()">
+                <img src="./unnamed.jpg" alt="Профиль" class="header-icon"/>
+            </button>
+        </div>
+        
+        <!-- Full-screen modal for profile image -->
+        <div id="profileModal" class="modal" onclick="closeModall()">
+            <img src="./unnamed.jpg" alt="Profile Full View" class="modal-content"/>
+        </div>
+        
+    </div>
+
+    <!-- Каталог -->
+    <div class="catalog-container">
+        <div class="gg"><h2 class="catalog-title">Все товары</h2>
+            <button class="view-all-button">Посмотреть все</button>
+         </div>
+        <div class="catalog-items">
+            <button class="catalog-item">
+                <img src="./icons/bur.png" alt="Бургеры" class="catalog-icon" /> Бургеры
+            </button>
+            <button class="catalog-item" >
+                <img src="./icons/piz.png" alt="Пицца" class="catalog-icon" /> Пицца
+            </button>
+            <button class="catalog-item">
+                <img src="./icons/hot.png" alt="Френч Доги" class="catalog-icon" /> Хот Доги
+            </button>
+            <button class="catalog-item" >
+                <img src="./icons/fry.png" alt="Снэки" class="catalog-icon" /> Снэки
+            </button>
+            <button class="catalog-item" >
+                <img src="./icons/kok.png" alt="Коктейли" class="catalog-icon" /> Коктейли
+            </button>
+            <button class="catalog-item">
+                <img src="./icons/sal.png" alt="Салаты" class="catalog-icon" /> Салаты
+            </button>
+            <button class="catalog-item" >
+                <img src="./icons/soup.png" alt="Супы" class="catalog-icon" /> Супы
+            </button>
+            <button class="catalog-item">
+                <img src="./icons/des.png" alt="Десерты" class="catalog-icon" /> Десерты
+            </button>
+        </div>
+    </div>
+
+   
+    <!-- Menu items -->
+    <div class="menu-container">
+        <div class="menu-items" id="menuItemsContainer">
+            <div class="menu-item">
+                <img src="./imgHome/Chicken-burger.png" alt="Биф Бургер" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Биф Бургер</h3>
+                    <p class="menu-opisanie">Говяжья котлета, сыр чеддер, овощи</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸3000</p>
+                        <p class="menu-weight">350g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/GribiPizz.png" alt="Ветчина грибы" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Ветчина грибы</h3>
+                    <p class="menu-opisanie">Ветчина, грибы, сыр моцарелла</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2800</p>
+                        <p class="menu-weight">300g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/HotDogChees.png" alt="Французский дог" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Французский дог</h3>
+                    <p class="menu-opisanie">Сосиска, сыр, кетчуп</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸1200</p>
+                        <p class="menu-weight">150g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/kartop.png" alt="Снэки" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Снэки</h3>
+                    <p class="menu-opisanie">Картофель фри, соус</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸800</p>
+                        <p class="menu-weight">200g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/SupBor.png" alt="Чикен Суп" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Чикен Суп</h3>
+                    <p class="menu-opisanie">Куриный суп с овощами</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2800</p>
+                        <p class="menu-weight">300g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/koktails.png" alt="Фрукт коктель" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Фрукт коктель</h3>
+                    <p class="menu-opisanie">Микс фруктов</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸1500</p>
+                        <p class="menu-weight">500g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/SalatCez.png" alt="Салат Цезарь" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Салат Цезарь</h3>
+                    <p class="menu-opisanie">Куриная грудка, сыр пармезан</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2500</p>
+                        <p class="menu-weight">400g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/Pirog.png" alt="Пирог с ягодами" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Пирог с ягодами</h3>
+                    <p class="menu-opisanie">Пирог с свежими ягодами</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸3000</p>
+                        <p class="menu-weight">350g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <div class="footer-container">
+        <a href="hom.html" class="footer-icon">
+            <button class="footer-icon">
+                <img src="./icons/home.png" alt="Home" />
+            </button>
+        </a>
+        <a href="orders.html" class="footer-icon">
+            <button class="footer-icon">
+                <img src="./icons/order.png" alt="Orders" />
+            </button>
+        </a>
+        <a href="./zakaz.html" class="footer-icon">
+            <button class="footer-icon cart">
+                <img src="./icons/korz.png" alt="Cart" />
+            </button>
+        </a>
+        <a href="./loved.html" class="footer-icon">
+            <button class="footer-icon">
+                <img src="./icons/fav.png" alt="Favorites" />
+            </button>
+        </a>
+        <a href="./profile.html" class="footer-icon">
+            <button class="footer-icon">
+                <img src="./icons/puser.png" alt="Profile" />
+            </button>
+        </a>
+    </div>
+
+    <script>
+           const modal = document.getElementById("profileModal");
+
+        // Function to open the modal
+function openModall() {
+ 
+    modal.style.display = "flex";
+    modal.classList.add("fade-in"); // Adds fade-in effect
+}
+
+// Function to close the modal
+function closeModall() {
+    modal.style.display = "none";
+}
+
+    </script>
+</body>
+</html>
