@@ -6,6 +6,26 @@
     <link rel="stylesheet" href="./Loved.css">
     <link rel="stylesheet" href="./Footer.css">
     <title>Любимое | BURGER BAR</title>
+    <style>
+        /* Основные стили для сердечка */
+        .loved-ax img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1); /* Делает иконку белой */
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+
+        /* Стили для состояния "любимого" */
+        .heart-icon.active img {
+            filter: brightness(0) saturate(1000%) hue-rotate(0deg); /* Красный цвет для активного состояния */
+        }
+
+        /* Эффект при наведении */
+        .loved-ax:hover img {
+            opacity: 1;
+            filter: brightness(4) invert(10); /* Делает иконку ярче при наведении */
+        }
+    </style>
 </head>
 <body>
     <div class="loved-container">
@@ -17,49 +37,58 @@
         <div class="loved-items">
             <!-- Example favorite item 1 -->
             <div class="loved-item">
-                
                 <div class="imgg">
-                <img src="./imgHome/Chicken-burger.png" alt="Item 1" class="item-image" /></div>
+                    <img src="./imgHome/Chicken-burger.png" alt="Item 1" class="item-image" />
+                </div>
                 <div class="loved-item-details">
                     <h3 class="loved-h2">Классический Бургер</h3>
                     <div class="down">
-                        <span class="loved-item-price">₸1500</span><p class="loved-p">Вес: 250г</p>
+                        <span class="loved-item-price">₸1500</span>
+                        <p class="loved-p">Вес: 250г</p>
                     </div>
                 </div>
                 <div class="loved-ax">
-                    <button class="heart-icon"><img src="./icons/fav.png" alt="Unfavorite" /></button>
+                    <button class="heart-icon" onclick="toggleFavorite(this)">
+                        <img src="./icons/fav.png" alt="Unfavorite" />
+                    </button>
                 </div>
             </div>
 
             <!-- Example favorite item 2 -->
             <div class="loved-item">
                 <div class="imgg">
-                    
-                <img src="./imgHome/kartop.png" alt="Item 2" class="item-image" />
+                    <img src="./imgHome/kartop.png" alt="Item 2" class="item-image" />
                 </div>
                 <div class="loved-item-details">
                     <h3 class="loved-h2">Картофель Фри</h3>
                     <div class="down">
-                        <span class="loved-item-price">₸500</span><p class="loved-p">Вес: 150г</p>
+                        <span class="loved-item-price">₸500</span>
+                        <p class="loved-p">Вес: 150г</p>
                     </div>
                 </div>
                 <div class="loved-ax">
-                    <button class="heart-icon"><img src="./icons/fav.png" alt="Unfavorite" /></button>
+                    <button class="heart-icon" onclick="toggleFavorite(this)">
+                        <img src="./icons/fav.png" alt="Unfavorite" />
+                    </button>
                 </div>
             </div>
 
             <!-- Example favorite item 3 -->
             <div class="loved-item">
-                
                 <div class="imgg">
-                <img src="./imgHome/koktails.png" alt="Item 3" class="item-image" /></div>
+                    <img src="./imgHome/koktails.png" alt="Item 3" class="item-image" />
+                </div>
                 <div class="loved-item-details">
                     <h3 class="loved-h2">Коктель</h3>
                     <div class="down">
-                        <span class="loved-item-price">₸500</span><p class="loved-p">Объем: 500мл</p> </div>
+                        <span class="loved-item-price">₸500</span>
+                        <p class="loved-p">Объем: 500мл</p>
+                    </div>
                 </div>
                 <div class="loved-ax">
-                    <button class="heart-icon"><img src="./icons/fav.png" alt="Unfavorite" /></button>
+                    <button class="heart-icon" onclick="toggleFavorite(this)">
+                        <img src="./icons/fav.png" alt="Unfavorite" />
+                    </button>
                 </div>
             </div>
         </div>
@@ -93,5 +122,11 @@
             </a>
         </div>
     </div>
+
+    <script>
+        function toggleFavorite(button) {
+            button.classList.toggle('active'); // Переключаем класс active для кнопки
+        }
+    </script>
 </body>
 </html>

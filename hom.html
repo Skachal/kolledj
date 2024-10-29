@@ -67,57 +67,138 @@
     <!-- Каталог -->
     <div class="catalog-container">
         <div class="gg"><h2 class="catalog-title">Все товары</h2>
-            <button class="view-all-button" onclick="displayMenuItems('all')">Посмотреть все</button>
+            <button class="view-all-button">Посмотреть все</button>
          </div>
         <div class="catalog-items">
-            <button class="catalog-item" onclick="displayMenuItems('burgers')">
+            <button class="catalog-item">
                 <img src="./icons/bur.png" alt="Бургеры" class="catalog-icon" /> Бургеры
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('pizza')">
+            <button class="catalog-item" >
                 <img src="./icons/piz.png" alt="Пицца" class="catalog-icon" /> Пицца
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('french-dogs')">
+            <button class="catalog-item">
                 <img src="./icons/hot.png" alt="Френч Доги" class="catalog-icon" /> Хот Доги
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('snacks')">
+            <button class="catalog-item" >
                 <img src="./icons/fry.png" alt="Снэки" class="catalog-icon" /> Снэки
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('cocktails')">
+            <button class="catalog-item" >
                 <img src="./icons/kok.png" alt="Коктейли" class="catalog-icon" /> Коктейли
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('salads')">
+            <button class="catalog-item">
                 <img src="./icons/sal.png" alt="Салаты" class="catalog-icon" /> Салаты
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('soups')">
+            <button class="catalog-item" >
                 <img src="./icons/soup.png" alt="Супы" class="catalog-icon" /> Супы
             </button>
-            <button class="catalog-item" onclick="displayMenuItems('desserts')">
+            <button class="catalog-item">
                 <img src="./icons/des.png" alt="Десерты" class="catalog-icon" /> Десерты
             </button>
         </div>
     </div>
 
-    <!-- Меню товаров -->
+   
+    <!-- Menu items -->
     <div class="menu-container">
         <div class="menu-items" id="menuItemsContainer">
-            <!-- Товары будут динамически добавлены здесь -->
+            <div class="menu-item">
+                <img src="./imgHome/Chicken-burger.png" alt="Биф Бургер" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Биф Бургер</h3>
+                    <p class="menu-opisanie">Говяжья котлета, сыр чеддер, овощи</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸3000</p>
+                        <p class="menu-weight">350g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/GribiPizz.png" alt="Ветчина грибы" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Ветчина грибы</h3>
+                    <p class="menu-opisanie">Ветчина, грибы, сыр моцарелла</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2800</p>
+                        <p class="menu-weight">300g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/HotDogChees.png" alt="Французский дог" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Французский дог</h3>
+                    <p class="menu-opisanie">Сосиска, сыр, кетчуп</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸1200</p>
+                        <p class="menu-weight">150g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/kartop.png" alt="Снэки" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Снэки</h3>
+                    <p class="menu-opisanie">Картофель фри, соус</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸800</p>
+                        <p class="menu-weight">200g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/SupBor.png" alt="Чикен Суп" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Чикен Суп</h3>
+                    <p class="menu-opisanie">Куриный суп с овощами</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2800</p>
+                        <p class="menu-weight">300g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/koktails.png" alt="Фрукт коктель" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Фрукт коктель</h3>
+                    <p class="menu-opisanie">Микс фруктов</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸1500</p>
+                        <p class="menu-weight">500g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/SalatCez.png" alt="Салат Цезарь" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Салат Цезарь</h3>
+                    <p class="menu-opisanie">Куриная грудка, сыр пармезан</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸2500</p>
+                        <p class="menu-weight">400g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="./imgHome/Pirog.png" alt="Пирог с ягодами" class="menu-item-image">
+                <div class="menu-item-info">
+                    <h3>Пирог с ягодами</h3>
+                    <p class="menu-opisanie">Пирог с свежими ягодами</p>
+                    <div class="menu-price-container">
+                        <p class="menu-price">₸3000</p>
+                        <p class="menu-weight">350g</p>
+                        <button class="menu-add-to-cart-button">+</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Модальное окно -->
-    <!-- <div id="modal" class="modal-overlay">
-        <div class="modal-content">
-            <h2 id="modalTitle" class="modal-title"></h2>
-            <img id="modalImage" alt="Изображение товара" class="modal-image" />
-            <p id="modalDescription" class="modal-description"></p>
-            <div class="modal-details">
-                <span id="modalWeight" class="modal-weight"></span>
-                <span id="modalPrice" class="modal-price"></span>
-            </div>
-            <button class="modal-add-to-cart-button">Добавить в корзину</button>
-            <button class="modal-close-button" onclick="closeModal()">Закрыть</button>
-        </div>
-    </div> -->
 
     <!-- Футер -->
     <div class="footer-container">
@@ -149,90 +230,17 @@
     </div>
 
     <script>
-        const menuItems = {
-            burgers: [
-                { id: 1, name: 'Биф Бургер', description: 'Говяжья котлета, сыр чеддер, овощи', price: '₸3000', weight: '350g', image: './imgHome/Chicken-burger.png' },
-            ],
-            pizza: [
-                { id: 2, name: 'Ветчина грибы', description: 'Ветчина, грибы, сыр моцарелла', price: '₸2800', weight: '300g', image: './imgHome/GribiPizz.png' },
-            ],
-            'french-dogs': [
-                { id: 3, name: 'Французский дог', description: 'Сосиска, сыр, кетчуп', price: '₸1200', weight: '150g', image: './imgHome/HotDogChees.png' },
-            ],
-            snacks: [
-                { id: 4, name: 'Снэки', description: 'Картофель фри, соус', price: '₸800', weight: '200g', image: './imgHome/kartop.png' },
-            ],
-            soups: [
-                { id: 5, name: 'Чикен Суп', description: 'Куриный суп с овощами', price: '₸2800', weight: '300g', image: './imgHome/SupBor.png' },
-            ],
-            cocktails: [
-                { id: 6, name: 'Фрукт коктель', description: 'Микс фруктов', price: '₸1500', weight: '500g', image: './imgHome/koktails.png' },
-            ],
-            salads: [
-                { id: 7, name: 'Салат Цезарь', description: 'Куриная грудка, сыр пармезан', price: '₸2500', weight: '400g', image: './imgHome/SalatCez.png' },
-            ],
-            desserts: [
-                { id: 8, name: 'Пирог с ягодами', description: 'Пирог с свежими ягодами', price: '₸3000', weight: '350g', image: './imgHome/Pirog.png' },
-            ],
-        };
-
-        // Функция для отображения товаров по категории или всех товаров
-        function displayMenuItems(category) {
-            const menuContainer = document.getElementById('menuItemsContainer');
-            menuContainer.innerHTML = ''; // Очищаем контейнер
-
-            const items = category === 'all'
-                ? Object.values(menuItems).flat() // Получаем все товары из всех категорий
-                : menuItems[category] || []; // Получаем товары по категории
-
-            items.forEach(item => {
-                const menuItem = document.createElement('div');
-                menuItem.className = 'menu-item';
-                menuItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="menu-item-image" onclick="openModal('${item.id}', '${category}')">
-                    <div class="menu-item-info">
-                        <h3>${item.name}</h3>
-                        <p class="menu-opisanie">${item.description}</p>
-                        <div class="menu-price-container">
-                            <p class="menu-price">${item.price}</p>
-                            <p class="menu-weight">${item.weight}</p>
-                            <button class="menu-add-to-cart-button">+</button>
-                        </div>
-                    </div>`;
-                menuContainer.appendChild(menuItem);
-            });
-        }
-
-        // Вызов функции для отображения всех товаров при загрузке страницы
-        window.onload = () => displayMenuItems('all');
-
-        // function openModal(itemId, category) {
-        //     const item = menuItems[category].find(i => i.id == itemId);
-        //     document.getElementById('modalTitle').textContent = item.name;
-        //     document.getElementById('modalImage').src = item.image;
-        //     document.getElementById('modalDescription').textContent = item.description;
-        //     document.getElementById('modalWeight').textContent = item.weight;
-        //     document.getElementById('modalPrice').textContent = item.price;
-        //     document.getElementById('modal').classList.add('show');
-        // }
-
-        // function closeModal() {
-        //     document.getElementById('modal').classList.remove('show');
-        // }
-
-
-
+           const modal = document.getElementById("profileModal");
 
         // Function to open the modal
 function openModall() {
-    const modal = document.getElementById("profileModal");
+ 
     modal.style.display = "flex";
     modal.classList.add("fade-in"); // Adds fade-in effect
 }
 
 // Function to close the modal
 function closeModall() {
-    const modal = document.getElementById("profileModal");
     modal.style.display = "none";
 }
 
