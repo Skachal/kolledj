@@ -6,17 +6,62 @@
     <link rel="stylesheet" href="./Zakaz.css">
     <link rel="stylesheet" href="./Footer.css">
     <title>Детали заказа | BURGER BAR</title>
-</head><body>
+    <style>
+        /* Простой стиль для кнопок */
+        .quantity-button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
     <div class="zakaz-container">
        <div class="tel">
             <div class="zakaz-con">
                 <h2 class="zakaz-title">Детали заказа</h2>
                 <div class="zakaz-items">
-                    <!-- Order items will be displayed here -->
+                    <!-- Пример элементов заказа -->
+                    <div class="zakaz-item">
+                        <img src="./imgHome/Chicken-burger.png" alt="Бургер Классический" class="item-image" />
+                        <div class="item-info">
+                            <h3>Бургер Классический</h3>
+                            <p>₸1500</p>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-button" onclick="changeQuantity(1, 1500, true)">+</button>
+                            <span id="quantity-1">0</span>
+                            <button class="quantity-button" onclick="changeQuantity(1, 1500, false)">−</button>
+                        </div>
+                    </div>
+
+                    <div class="zakaz-item">
+                        <img src="./imgHome/kartop.png" alt="Картофель Фри" class="item-image" />
+                        <div class="item-info">
+                            <h3>Картофель Фри</h3>
+                            <p>₸500</p>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-button" onclick="changeQuantity(2, 500, true)">+</button>
+                            <span id="quantity-2">0</span>
+                            <button class="quantity-button" onclick="changeQuantity(2, 500, false)">−</button>
+                        </div>
+                    </div>
+
+                    <div class="zakaz-item">
+                        <img src="./imgHome/koktails.png" alt="Фрукт коктель" class="item-image" />
+                        <div class="item-info">
+                            <h3>Фрукт коктель</h3>
+                            <p>₸300</p>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-button" onclick="changeQuantity(3, 300, true)">+</button>
+                            <span id="quantity-3">0</span>
+                            <button class="quantity-button" onclick="changeQuantity(3, 300, false)">−</button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="zakaz-summary">
-                <p>Стоимость всех товаров: <span>₸0</span></p>
+                <p>Стоимость всех товаров: <span id="total-price">₸0</span></p>
                 <div class="pay-button-container">
                     <button class="pay-button">Оплатить</button>
                 </div>
@@ -52,78 +97,33 @@
     </div>
 
     <script>
-        // Order items data with initial quantities and prices
-        const orderItems = [
-            { id: 1, name: "Бургер Классический", price: 1500, image: './imgHome/Chicken-burger.png', quantity: 0 },
-            { id: 2, name: "Картофель Фри", price: 500, image: './imgHome/kartop.png',quantity: 0 },
-            { id: 3, name: "Фрукт коктель", price: 300, image: './imgHome/koktails.png', quantity: 0 }
-        ];
-    
-        // Function to update displayed quantities and total price
-        function updateDisplay() {
+        // Функция для изменения количества товара и обновления общей стоимости
+        function changeQuantity(itemId, price, increase) {
+            const quantityElement = document.getElementById(`quantity-${itemId}`);
+            let quantity = parseInt(quantityElement.innerText); // Получаем текущее количество
+            const totalPriceElement = document.getElementById('total-price'); // Элемент для отображения общей стоимости
+
+            if (increase) {
+                quantity += 1; // Увеличиваем количество
+            } else if (quantity > 0) {
+                quantity -= 1; // Уменьшаем количество, но не ниже 0
+            }
+
+            quantityElement.innerText = quantity; // Обновляем отображаемое количество
+
+            // Обновляем общую стоимость
+            const totalPrice = calculateTotalPrice();
+            totalPriceElement.innerText = `₸${totalPrice}`;
+        }
+
+        // Функция для вычисления общей стоимости
+        function calculateTotalPrice() {
             let total = 0;
-            
-            orderItems.forEach(item => {
-                // Update quantity displayed for each item
-                document.getElementById(`quantity-${item.id}`).innerText = item.quantity;
-                
-                // Calculate total price for all items
-                total += item.price * item.quantity;
-            });
-    
-            // Update the total price display
-            document.querySelector(".zakaz-summary span").innerText = `₸${total}`;
+            total += parseInt(document.getElementById('quantity-1').innerText) * 1500; // Бургер
+            total += parseInt(document.getElementById('quantity-2').innerText) * 500; // Картофель
+            total += parseInt(document.getElementById('quantity-3').innerText) * 300; // Коктейль
+            return total; // Возвращаем общую стоимость
         }
-    
-        // Function to increase quantity
-        function increaseQuantity(itemId) {
-            const item = orderItems.find(item => item.id === itemId);
-            if (item) {
-                item.quantity += 1;
-                updateDisplay();
-            }
-        }
-    
-        // Function to decrease quantity
-        function decreaseQuantity(itemId) {
-            const item = orderItems.find(item => item.id === itemId);
-            if (item && item.quantity > 0) { // Ensure quantity does not go below 0
-                item.quantity -= 1;
-                updateDisplay();
-            }
-        }
-    
-        // Initialize display with event listeners on quantity buttons
-        function initializeOrderItems() {
-            const zakazItemsContainer = document.querySelector(".zakaz-items");
-            zakazItemsContainer.innerHTML = ''; // Clear existing items in container
-    
-            orderItems.forEach(item => {
-                const zakazItem = document.createElement('div');
-                zakazItem.classList.add('zakaz-item');
-                
-                zakazItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="item-image" />
-                    <div class="item-info">
-                        <h3>${item.name}</h3>
-                        <p>₸${item.price}</p>
-                    </div>
-                    <div class="item-quantity">
-                        <button id="m minus-${item.id}" class="quantity-button" onclick="decreaseQuantity(${item.id})">−</button>
-                        <span id="quantity-${item.id}">${item.quantity}</span>
-                        <button id="p plus-${item.id}" class="quantity-button" onclick="increaseQuantity(${item.id})">+</button>
-                    </div>
-                `;
-    
-                zakazItemsContainer.appendChild(zakazItem);
-            });
-    
-            updateDisplay(); // Update total price on page load
-        }
-    
-        // Run initialize function after page load
-        window.onload = initializeOrderItems;
     </script>
 </body>
-
 </html>
